@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<script src="/static/ckeditor/ckeditor.js"></script>
+<script src="https://cdn.tiny.cloud/1/auafnbcofcvogwyumtkt53m53kdt6v2izlj6trmt7ues1qup/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<div style="text-align: center; margin: 0 auto;">
+    <h2 style="margin-top: 50px;">{{title}}</h2>
+    <form style="margin: 0 auto; height: 100%; display: block;">
+        <br>
+        <textarea id="default-editor" style="width: 100%; margin: 0 auto;">
+            <center><h1>{{title}}</h1></center>
+            <br /><br />
+            {% for x in paragraphs %}
+                {{x}}
+            {% endfor %}
+        </textarea>
+    </form>
+    <script>
+        tinymce.init({
+            selector: 'textarea#default-editor'
+        });
+    </script>
+</div>
+{% endblock %}
